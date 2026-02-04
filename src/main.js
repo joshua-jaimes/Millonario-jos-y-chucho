@@ -5,6 +5,7 @@ import { Quasar, Dialog, Notify, Screen, LocalStorage, SessionStorage } from 'qu
 import '@quasar/extras/material-icons/material-icons.css'
 import 'quasar/src/css/index.sass'
 import './style.css'
+import router from "./routes/routes.js"
 
 const myApp = createApp(App)
 
@@ -17,5 +18,7 @@ myApp.use(Quasar, {
     SessionStorage
   },
 })
+
+myApp.use(router)
 
 myApp.mount('#app')
