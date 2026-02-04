@@ -1,0 +1,162 @@
+/* --- CONTENEDOR PRINCIPAL --- */
+.juego-container {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    box-sizing: border-box;
+    overflow: hidden;
+    background-image: 
+        linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.8)),
+        url('../assets/fondo.png');       
+    background-size: cover; 
+    background-position: center; 
+    background-repeat: no-repeat;
+    background-attachment: fixed; 
+    user-select: none;
+}
+
+/* --- TABLERO TIPO TV --- */
+.tablero-juego {
+    background: linear-gradient(180deg, #100b2b 0%, #291857 100%);
+    border: 3px solid #d4af37;
+    border-radius: 15px;
+    padding: 15px;
+    width: 100%;
+    max-width: 600px; /* Más estrecho para verse mejor */
+    box-shadow: 0 10px 30px rgba(0,0,0,0.6);
+    display: flex;
+    flex-direction: column;
+    gap: 10px; /* Espacio reducido entre elementos */
+    max-height: 100%;
+}
+
+/* --- CABECERA --- */
+.cabecera-superior {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.badge-categoria {
+    background: #d4af37;
+    color: #100b2b;
+    padding: 2px 8px;
+    border-radius: 4px;
+    font-weight: bold;
+    font-size: 0.75rem;
+    max-width: 60%;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.barra-ayudas {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+/* --- PREGUNTA (FUENTE PEQUEÑA) --- */
+.pregunta-box {
+    background: rgba(0, 0, 0, 0.5);
+    border: 1px solid #5a4b8f;
+    padding: 10px;
+    border-radius: 8px;
+    text-align: center;
+    color: white;
+    min-height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.pregunta-box h2 {
+    margin: 0;
+    font-size: 1rem; /* LETRA PEQUEÑA COMO PEDISTE */
+    line-height: 1.2;
+    font-weight: 500;
+}
+
+/* --- OPCIONES --- */
+.opciones-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+}
+
+.opcion-card {
+    background: #1e1540;
+    color: white;
+    border: 2px solid #5a4b8f;
+    padding: 8px;
+    border-radius: 15px;
+    font-size: 0.85rem;
+    cursor: pointer;
+    transition: all 0.2s;
+    min-height: 45px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.opcion-card:hover { background: #3b2d75; border-color: #d4af37; }
+
+/* Estados */
+.opcion-card.correcto { background-color: #28a745 !important; border-color: #1e7e34 !important; }
+.opcion-card.incorrecto { background-color: #dc3545 !important; border-color: #bd2130 !important; }
+.opcion-card.correcto-revelado { background-color: #28a745 !important; opacity: 0.6; }
+.opcion-card.respuesta-oculta { opacity: 0.1; pointer-events: none; border: none; }
+
+/* --- ESCALA (MINIMALISTA) --- */
+.escala-container {
+    background: rgba(0, 0, 0, 0.3);
+    padding: 4px;
+    border-radius: 6px;
+    border-top: 1px solid #5a4b8f;
+    display: flex;
+    flex-direction: column;
+    gap: 1px;
+    flex-grow: 1; /* Ocupa el espacio sobrante si hay */
+    justify-content: center;
+}
+
+.escala-item {
+    display: flex;
+    justify-content: space-between;
+    padding: 1px 10px;
+    color: #666;
+    font-size: 0.7rem;
+    border-radius: 3px;
+}
+
+.escala-item.activo {
+    background-color: #d4af37;
+    color: #000;
+    font-weight: bold;
+    transform: scale(1.02);
+}
+
+/* --- PANTALLA DE CARGA --- */
+.loading {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%; /* Para que se centre verticalmente en toda la pantalla */
+    color: white !important; /* Forzamos el color blanco */
+    text-shadow: 0 2px 4px rgba(0,0,0,0.5); /* Un poquito de sombra para que resalte */
+}
+
+/* Aseguramos que el H2 tambien sea blanco por si Quasar lo intenta cambiar */
+.loading h2 {
+    color: white !important;
+    margin: 0;
+}
+
+@media (max-width: 600px) {
+    .opciones-grid { grid-template-columns: 1fr; }
+    .tablero-juego { border-width: 1px; }
+}
