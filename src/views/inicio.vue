@@ -11,7 +11,7 @@
 
 <div class="inicios">
 
- <img src="public/millon.png" alt="imagen" style=" display:flex ; justify-self: center; align-self: center; width: 430px; min-height: 430px; margin-top: 5rem;"/>
+ <img src="/millon.png" alt="imagen" style=" display:flex ; justify-self: center; align-self: center; width: 430px; min-height: 430px; margin-top: 5rem;"/>
 
     
     <q-btn color="primary" label="jugar" to="/juego" class="boton" /><br>
@@ -47,7 +47,7 @@
 }
 
 .vista{
-    background: url('public/fondo.png') center center no-repeat;
+    background: url('/fondo.png') center center no-repeat;
     min-height: 100vh;
     background-size: cover;
 }
