@@ -47,7 +47,7 @@
 }
 
 .vista{
-    background: url('/fondo.png') center center no-repeat;
+    background: url('public/fondo.png') center center no-repeat;
     min-height: 100vh;
     background-size: cover;
 }
