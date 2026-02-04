@@ -7,4 +7,4 @@
     <q-btn color="primary" label="final" to="/final" /><br>
 </template>
 
-<style scoped></style>
+<style scoped src="../styles/juego.css"></style>
