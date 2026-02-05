@@ -15,19 +15,19 @@ const estados = {
         titulo: '¡FELICITACIONES, MILLONARIO!',
         mensaje: 'Has respondido correctamente todas las preguntas. ¡Eres increíble!',
         // Usamos la misma de fondo como placeholder por ahora
-        imagen: new URL('../assets/fondo.png', import.meta.url).href
+        imagen: new URL('../assets/ganaste.png', import.meta.url).href
     },
     'perdio': {
         titulo: '¡OH NO, QUÉ LÁSTIMA!',
         mensaje: 'Arriesgaste y no salió bien esta vez. ¡Pero llegaste muy lejos!',
         // Usamos la misma de fondo como placeholder por ahora
-        imagen: new URL('../assets/fondo.png', import.meta.url).href
+        imagen: new URL('../assets/perdiste.png', import.meta.url).href
     },
     'retiro': {
         titulo: 'DECISIÓN INTELIGENTE',
         mensaje: 'Decidiste asegurar tu premio y retirarte a tiempo. ¡Bien jugado!',
         // Usamos la misma de fondo como placeholder por ahora
-        imagen: new URL('../assets/fondo.png', import.meta.url).href
+        imagen: new URL('../assets/retirado.png', import.meta.url).href
     }
 };
 
