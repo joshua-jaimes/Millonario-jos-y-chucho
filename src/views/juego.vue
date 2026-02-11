@@ -1,7 +1,7 @@
 <script setup>
 import { ref, onMounted, reactive } from 'vue';
-import axios from 'axios';
 import { useRouter } from 'vue-router';
+import { bancoPreguntas } from '../assets/preguntas.js';
 import { useQuasar } from 'quasar'; // Importamos el composable
 
 const $q = useQuasar(); // Instancia para usar los plugins (Dialog, Notify, etc)
@@ -99,10 +99,20 @@ const usarPublico = () => {
 };
 
 // --- LÓGICA PRINCIPAL ---
+
+
 const obtenerPreguntas = async () => {
+    cargando.value = true;
     try {
-        const response = await axios.get('https://opentdb.com/api.php?amount=10');
-        preguntas.value = response.data.results.map((p) => {
+        // Simular pequeña espera para UX
+        await new Promise(resolve => setTimeout(resolve, 600));
+
+        // Seleccionar 10 preguntas aleatorias
+        const preguntasAleatorias = bancoPreguntas
+            .sort(() => Math.random() - 0.5)
+            .slice(0, 10);
+
+        preguntas.value = preguntasAleatorias.map((p) => {
             // Unir y mezclar opciones
             const opciones = [...p.incorrect_answers, p.correct_answer].sort(() => Math.random() - 0.5);
             return {
@@ -111,7 +121,11 @@ const obtenerPreguntas = async () => {
                 indiceCorrecta: opciones.indexOf(p.correct_answer)
             };
         });
-    } catch (e) { console.error(e); } finally { cargando.value = false; }
+    } catch (e) { 
+        console.error("Error cargando preguntas locales:", e); 
+    } finally { 
+        cargando.value = false; 
+    }
 };
 
 const seleccionarOpcion = (index) => {
